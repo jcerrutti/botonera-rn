@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Text, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
+import { Text, SafeAreaView, ScrollView, StyleSheet, FlatList } from 'react-native';
 import * as Sharing from 'expo-sharing';
 import { Asset } from 'expo-asset';
 import { Audio } from 'expo-av';
-import * as FileSystem from 'expo-file-system'
+import * as FileSystem from 'expo-file-system';
 
 import Constants from 'expo-constants';
 
@@ -34,10 +34,10 @@ export default function Dashboard() {
     try {
       const file = await FileSystem.downloadAsync(
         passedFile,
-        FileSystem.documentDirectory  + 'audio.mp3'
+        FileSystem.documentDirectory + 'audio.mp3'
       );
       await soundObject.loadAsync({
-        uri: file.uri
+        uri: file.uri,
       });
       await soundObject.setVolumeAsync();
       await soundObject.setStatusAsync({
@@ -51,12 +51,12 @@ export default function Dashboard() {
 
   onShare = async (passedFile) => {
     try {
-      debugger
+      debugger;
       const myFile = await FileSystem.downloadAsync(
         passedFile,
-        FileSystem.documentDirectory  + 'audio.mp3'
-      )
-      debugger
+        FileSystem.documentDirectory + 'audio.mp3'
+      );
+      debugger;
       await Sharing.shareAsync(myFile.uri, {
         dialogTitle: 'Compartir audio del poder',
         mimeType: 'audio/mpeg',
@@ -70,33 +70,28 @@ export default function Dashboard() {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
-        {error && <Text>{error.message}</Text>}
-        {error && <Text>{fileNamed}</Text>}
-        {audios.map((audio) => (
-          <AudioItem
-            key={audio.title}
-            audio={audio}
-            onPlayAudio={playSound}
-            onShareAudio={onShare}
-          />
-        ))}
-      </ScrollView>
+      {error && <Text>{error.message}</Text>}
+      {error && <Text>{fileNamed}</Text>}
+      <FlatList
+        contentContainerStyle={styles.flatList}
+        data={audios}
+        numColumns={2}
+        key={2}
+        renderItem={(audio) => (
+          <AudioItem audio={audio} onPlayAudio={playSound} onShareAudio={onShare} />
+        )}
+        keyExtractor={(audio) => audio.title}
+      />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Constants.statusBarHeight,
+    marginTop: 10,
   },
-  scrollView: {
-    marginHorizontal: 20,
-  },
-  audioView: {
-    borderColor: '#000',
-    borderStyle: 'solid',
+  flatList: {
+    flexDirection: 'column',
     alignItems: 'center',
-    borderWidth: 1,
   },
 });
