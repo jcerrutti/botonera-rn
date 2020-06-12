@@ -22,7 +22,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.jicerrutti.botoneraDelPoder",
+      "buildNumber": "0.0.1"
+    },
+    "android": {
+      "package": "com.jicerrutti.botoneraDelPoder",
+      "versionCode": 1
     }
   }
 }
