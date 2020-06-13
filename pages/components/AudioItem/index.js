@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 
 export default function AudioItem({ audio, onPlayAudio, onShareAudio }) {
-  const { title, path } = audio.item;
+  const { title, path } = audio;
 
   const onPlayPress = () => {
     onPlayAudio(path, title);

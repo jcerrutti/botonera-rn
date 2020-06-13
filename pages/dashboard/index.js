@@ -103,8 +103,8 @@ export default function Dashboard() {
         data={filteredAudios.length ? filteredAudios : audios}
         numColumns={2}
         key={2}
-        renderItem={(audio) => (
-          <AudioItem audio={audio} onPlayAudio={playSound} onShareAudio={onShare} />
+        renderItem={({ item }) => (
+          <AudioItem audio={item} onPlayAudio={playSound} onShareAudio={onShare} />
         )}
         keyExtractor={(audio) => audio.title}
       />
