@@ -6,11 +6,11 @@ export default function AudioItem({ audio, onPlayAudio, onShareAudio }) {
   const { title, path } = audio.item;
 
   const onPlayPress = () => {
-    onPlayAudio(path);
+    onPlayAudio(path, title);
   };
 
   const onSharePress = () => {
-    onShareAudio(path);
+    onShareAudio(path, title);
   };
 
   return (
@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   buttonStyle: {
-    color: '#252a34',
     backgroundColor: 'transparent',
   },
 });

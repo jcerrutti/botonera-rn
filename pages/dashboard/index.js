@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Text, SafeAreaView, ScrollView, StyleSheet, FlatList } from 'react-native';
+import { Text, SafeAreaView, StyleSheet, FlatList } from 'react-native';
 import * as Sharing from 'expo-sharing';
-import { Asset } from 'expo-asset';
 import { Audio } from 'expo-av';
 import * as FileSystem from 'expo-file-system';
 
-import Constants from 'expo-constants';
-
 import AudioItem from '../components/AudioItem';
-
-import audios from '../../server/audios';
+import SearchInput from '../components/SearchInput';
 
 export default function Dashboard() {
   const [error, setError] = useState(null);
   const [fileNamed, setFiledNamed] = useState('');
+  const [audios, setAudios] = useState([]);
+  const [filteredAudios, setFilteredAudios] = useState([]);
+
+  useEffect(() => {
+    fetchAudios();
+  }, []);
 
   Audio.setAudioModeAsync({
     playsInSilentModeIOS: true,
@@ -21,21 +23,37 @@ export default function Dashboard() {
     interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
     shouldDuckAndroid: false,
     interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+    playThroughEarpieceAndroid: false,
   });
 
-  const playSound = async (passedFile) => {
-    await Audio.setAudioModeAsync({
-      playsInSilentModeIOS: true,
-      allowsRecordingIOS: false,
-      shouldDuckAndroid: false,
-      playThroughEarpieceAndroid: false,
-    });
-    const soundObject = new Audio.Sound();
+  const fetchAudios = async () => {
+    const response = await fetch(
+      'https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/audios.json'
+    );
+    const json = await response.json();
+    const { audios } = json;
+    setAudios(audios);
+  };
+
+  const downloadFile = async (passedFile, title) => {
     try {
+      console.log(passedFile);
+      const fileTitle = title.replace(/\s/g, '');
       const file = await FileSystem.downloadAsync(
         passedFile,
-        FileSystem.documentDirectory + 'audio.mp3'
+        FileSystem.documentDirectory + `${fileTitle}.mp3`
       );
+      return file;
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  };
+
+  const playSound = async (passedFile, title) => {
+    const soundObject = new Audio.Sound();
+    try {
+      const file = await downloadFile(passedFile, title);
       await soundObject.loadAsync({
         uri: file.uri,
       });
@@ -49,15 +67,10 @@ export default function Dashboard() {
     }
   };
 
-  onShare = async (passedFile) => {
+  onShare = async (passedFile, title) => {
     try {
-      debugger;
-      const myFile = await FileSystem.downloadAsync(
-        passedFile,
-        FileSystem.documentDirectory + 'audio.mp3'
-      );
-      debugger;
-      await Sharing.shareAsync(myFile.uri, {
+      const file = await downloadFile(passedFile, title);
+      await Sharing.shareAsync(file.uri, {
         dialogTitle: 'Compartir audio del poder',
         mimeType: 'audio/mpeg',
         UTI: 'audio/mpeg',
@@ -68,13 +81,26 @@ export default function Dashboard() {
       setError(error);
     }
   };
+
+  onSearchHandler = (input) => {
+    if (input.length > 0) {
+      const filteredAudios = audios.filter(({ title }) =>
+        title.toLowerCase().includes(input.toLowerCase())
+      );
+      setFilteredAudios(filteredAudios);
+    } else {
+      setFilteredAudios([]);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       {error && <Text>{error.message}</Text>}
       {error && <Text>{fileNamed}</Text>}
+      <SearchInput onSearch={onSearchHandler} />
       <FlatList
         contentContainerStyle={styles.flatList}
-        data={audios}
+        data={filteredAudios.length ? filteredAudios : audios}
         numColumns={2}
         key={2}
         renderItem={(audio) => (
@@ -88,7 +114,7 @@ export default function Dashboard() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 10,
+    marginVertical: 10,
   },
   flatList: {
     flexDirection: 'column',
