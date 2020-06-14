@@ -11,105 +11,105 @@
       "category": 2,
       "categoryName": "Lucas",
       "imageId": "lucas",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/piloto-chapeco.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/piloto-chapeco.mp3",
       "title": "Piloto chapeco"
     },
     {
       "category": 3,
       "categoryName": "German",
       "imageId": "german",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/agua-pozo.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/agua-pozo.mp3",
       "title": "Agua del pozo"
     },
     {
       "category": 2,
       "categoryName": "Lucas",
       "imageId": "lucas",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/alto-petardo.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/alto-petardo.mp3",
       "title": "Alto petardo"
     },
     {
       "category": 2,
       "categoryName": "Lucas",
       "imageId": "lucas",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/risa-gordo.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/risa-gordo.mp3",
       "title": "Risa Gordo"
     },
     {
       "category": 2,
       "categoryName": "Lucas",
       "imageId": "lucas",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/perdona.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/perdona.mp3",
       "title": "Perdona"
     },
     {
       "category": 0,
       "categoryName": "General",
       "imageId": "",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/canelones.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/canelones.mp3",
       "title": "Canelones"
     },
     {
       "category": 3,
       "categoryName": "German",
       "imageId": "german",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/despedida-gratis.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/despedida-gratis.mp3",
       "title": "Despedida Cavenaghi"
     },
     {
       "category": 3,
       "categoryName": "German",
       "imageId": "german",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/gordo-mion.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/gordo-mion.mp3",
       "title": "Gordo Mion"
     },
     {
       "category": 3,
       "categoryName": "German",
       "imageId": "german",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/gordo-mion-2.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/gordo-mion-2.mp3",
       "title": "Gordo Mion 2"
     },
     {
       "category": 3,
       "categoryName": "German",
       "imageId": "german",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/gordo-mion-3.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/gordo-mion-3.mp3",
       "title": "Gordo Mion 3"
     },
     {
       "category": 2,
       "categoryName": "Lucas",
       "imageId": "lucas",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/mensaje-peligro.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/mensaje-peligro.mp3",
       "title": "Mensaje, peligro"
     },
     {
       "category": 0,
       "categoryName": "General",
       "imageId": "",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/piel-iguana.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/piel-iguana.mp3",
       "title": "Piel de Iguana"
     },
     {
       "category": 3,
       "categoryName": "German",
       "imageId": "german",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/publicacion-gordo.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/publicacion-gordo.mp3",
       "title": "Publicacion Gordo"
     },
     {
       "category": 2,
       "categoryName": "Lucas",
       "imageId": "lucas",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/tampon-mirtha.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/tampon-mirtha.mp3",
       "title": "Tampón Mirtha Legrand"
     },
     {
       "category": 2,
       "categoryName": "Lucas",
       "imageId": "lucas",
-      "path": "http://srv-file18.gofile.io/download/rzSZWr/tengo-sueter.mp3",
+      "path": "https://raw.githubusercontent.com/jcerrutti/botonera-rn/master/assets/audio/tengo-sueter.mp3",
       "title": "Tengo sueter"
     }
   ]
